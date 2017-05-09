@@ -1,23 +1,30 @@
 //
-//  ViewController.m
+//  OtherViewController.m
 //  XXRouter
 //
-//  Created by Shawn on 16/8/8.
-//  Copyright © 2016年 Shawn. All rights reserved.
+//  Created by Shawn on 2017/5/9.
+//  Copyright © 2017年 Shawn. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "OtherViewController.h"
 #import "TestRouter.h"
 
-@interface ViewController ()
+@interface OtherViewController ()
 
 @end
 
-@implementation ViewController
+@implementation OtherViewController
+
++ (void)load
+{
+    XXRouterItem * otherItem = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) key:@"other"];
+    otherItem.needLogin = YES;
+    [[TestRouter shareRouter]reigsterRouterItem:otherItem];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,9 +42,4 @@
 }
 */
 
-- (IBAction)loginBtnAction:(id)sender {
-    
-    NSURL * url = [[TestRouter shareRouter]urlWithKey:@"login"];
-    [[TestRouter shareRouter]routerWithUrl:url];
-}
 @end

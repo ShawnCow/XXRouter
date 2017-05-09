@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TestRouter.h"
-#import "ViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,10 +18,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    UINavigationController * nai = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil]];
-    self.window.rootViewController = nai;
+    
+    UITabBarController * tbc = [UITabBarController new];
+    NSArray * keys = @[@"home",@"my"];
+    NSMutableArray * vcs = [NSMutableArray array];
+    
+    for (int i = 0; i < keys.count; i ++) {
+        XXRouterItem * item = [[TestRouter shareRouter]itemForKey:keys[i]];
+        if (item) {
+            UIViewController * vc = [item createViewController];
+            UINavigationController * nai = [[UINavigationController alloc]initWithRootViewController:vc];
+            nai.navigationBar.translucent = NO;
+            [vcs addObject:nai];
+            vc.title = keys[i];
+        }
+    }
+    [[TestRouter shareRouter]setRootViewController:tbc];
+    tbc.viewControllers = vcs;
     [self.window makeKeyAndVisible];
-    [[TestRouter shareRouter]setRootViewController:nai];
+    self.window.rootViewController = tbc;
     // Override point for customization after application launch.
     return YES;
 }

@@ -22,6 +22,11 @@ typedef NS_ENUM(NSUInteger, XXRouterCreateType)
     XXRouterCreateTypeByStoryboard,
 };
 
+@class XXRouter;
+@class XXRouterItem;
+
+typedef id (^XXRouterCustomUICompletion)(XXRouter * router, XXRouterItem * item);
+
 @class UIViewController;
 
 @interface XXRouterItem : NSObject
@@ -39,6 +44,10 @@ typedef NS_ENUM(NSUInteger, XXRouterCreateType)
 @property (nonatomic, readonly, copy) NSString * storyboardName;
 
 @property (nonatomic, readonly, copy) NSString * storyboardId;
+
+@property (nonatomic, copy) XXRouterCustomUICompletion customUICompletion;
+
+@property (nonatomic) BOOL needLogin;
 
 #pragma mark - 通过class创建对象
 

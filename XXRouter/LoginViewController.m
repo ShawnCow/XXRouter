@@ -2,8 +2,8 @@
 //  LoginViewController.m
 //  XXRouter
 //
-//  Created by Shawn on 16/8/8.
-//  Copyright © 2016年 Shawn. All rights reserved.
+//  Created by Shawn on 2017/5/9.
+//  Copyright © 2017年 Shawn. All rights reserved.
 //
 
 #import "LoginViewController.h"
@@ -17,14 +17,27 @@
 
 + (void)load
 {
-    XXRouterItem * item = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) nibName:@"LoginViewController" key:@"login"];
-    [[TestRouter shareRouter]reigsterRouterItem:item];
+    XXRouterItem * loginItem = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) nibName:@"LoginViewController" key:XXRouterLoginItemKey];
+    loginItem.customUICompletion = ^(XXRouter *router,XXRouterItem *item) {
+        
+        UIViewController * vc = [router.loginItem createViewController];
+        UINavigationController * nai = [[UINavigationController alloc]initWithRootViewController:vc];
+        vc.title = @"登录";
+        nai.navigationBar.translucent = NO;
+        [[[[[UIApplication sharedApplication]windows]firstObject]rootViewController]presentViewController:nai animated:YES completion:nil];
+        return vc;
+    };
+    [[TestRouter shareRouter]reigsterRouterItem:loginItem];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = @"登录";
+    [TestRouter shareRouter].login = YES;
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (IBAction)cancelBtnAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,12 +54,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)registerBtn:(id)sender {
-    
-    NSDictionary * dic = @{@"name":@"小胖子是贱人"};
-    NSURL * url = [[TestRouter shareRouter]urlWithKey:@"register" param:dic];
-    [[TestRouter shareRouter]routerWithUrl:url];
-}
 
 @end

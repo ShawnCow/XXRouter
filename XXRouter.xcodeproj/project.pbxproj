@@ -12,13 +12,17 @@
 		291FA58A1D5049AF00E54A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 291FA5891D5049AF00E54A12 /* Assets.xcassets */; };
 		291FA58D1D5049AF00E54A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 291FA58B1D5049AF00E54A12 /* LaunchScreen.storyboard */; };
 		2932D6881D58279400ED9912 /* TestRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2932D6871D58279400ED9912 /* TestRouter.m */; };
-		2932D68C1D5827E000ED9912 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2932D68A1D5827E000ED9912 /* LoginViewController.m */; };
-		2932D68D1D5827E000ED9912 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2932D68B1D5827E000ED9912 /* LoginViewController.xib */; };
-		2932D6901D58289700ED9912 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2932D68F1D58289700ED9912 /* RegisterViewController.m */; };
-		2932D6941D58294100ED9912 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2932D6921D58294100ED9912 /* ViewController.m */; };
-		2932D6951D58294100ED9912 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2932D6931D58294100ED9912 /* ViewController.xib */; };
 		2984611B1D58301300B70488 /* XXRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 298461181D58301300B70488 /* XXRouter.m */; };
 		2984611C1D58301300B70488 /* XXRouterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2984611A1D58301300B70488 /* XXRouterItem.m */; };
+		29AFC5B31EC1F2A30032D799 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AFC5B11EC1F2A30032D799 /* HomeViewController.m */; };
+		29AFC5B41EC1F2A30032D799 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AFC5B21EC1F2A30032D799 /* HomeViewController.xib */; };
+		29AFC5BB1EC1F3460032D799 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AFC5B91EC1F3460032D799 /* UserCenterViewController.m */; };
+		29AFC5BC1EC1F3460032D799 /* UserCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AFC5BA1EC1F3460032D799 /* UserCenterViewController.xib */; };
+		29AFC5D51EC1F9060032D799 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AFC5D31EC1F9060032D799 /* LoginViewController.m */; };
+		29AFC5D61EC1F9060032D799 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AFC5D41EC1F9060032D799 /* LoginViewController.xib */; };
+		29AFC5D91EC1FA6E0032D799 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AFC5D81EC1FA6E0032D799 /* OtherViewController.m */; };
+		29AFC5DD1EC1FC670032D799 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AFC5DB1EC1FC660032D799 /* WebViewController.m */; };
+		29AFC5DE1EC1FC670032D799 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AFC5DC1EC1FC660032D799 /* WebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,18 +35,24 @@
 		291FA58E1D5049AF00E54A12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2932D6861D58279400ED9912 /* TestRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRouter.h; sourceTree = "<group>"; };
 		2932D6871D58279400ED9912 /* TestRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRouter.m; sourceTree = "<group>"; };
-		2932D6891D5827E000ED9912 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		2932D68A1D5827E000ED9912 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		2932D68B1D5827E000ED9912 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		2932D68E1D58289700ED9912 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		2932D68F1D58289700ED9912 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		2932D6911D58294100ED9912 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2932D6921D58294100ED9912 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2932D6931D58294100ED9912 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		298461171D58301300B70488 /* XXRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRouter.h; sourceTree = "<group>"; };
 		298461181D58301300B70488 /* XXRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRouter.m; sourceTree = "<group>"; };
 		298461191D58301300B70488 /* XXRouterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRouterItem.h; sourceTree = "<group>"; };
 		2984611A1D58301300B70488 /* XXRouterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRouterItem.m; sourceTree = "<group>"; };
+		29AFC5B01EC1F2A30032D799 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		29AFC5B11EC1F2A30032D799 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		29AFC5B21EC1F2A30032D799 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		29AFC5B81EC1F3460032D799 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
+		29AFC5B91EC1F3460032D799 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		29AFC5BA1EC1F3460032D799 /* UserCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterViewController.xib; sourceTree = "<group>"; };
+		29AFC5D21EC1F9060032D799 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		29AFC5D31EC1F9060032D799 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		29AFC5D41EC1F9060032D799 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		29AFC5D71EC1FA6E0032D799 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		29AFC5D81EC1FA6E0032D799 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		29AFC5DA1EC1FC660032D799 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		29AFC5DB1EC1FC660032D799 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		29AFC5DC1EC1FC660032D799 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,14 +89,20 @@
 				291FA5811D5049AF00E54A12 /* AppDelegate.m */,
 				2932D6861D58279400ED9912 /* TestRouter.h */,
 				2932D6871D58279400ED9912 /* TestRouter.m */,
-				2932D6911D58294100ED9912 /* ViewController.h */,
-				2932D6921D58294100ED9912 /* ViewController.m */,
-				2932D6931D58294100ED9912 /* ViewController.xib */,
-				2932D6891D5827E000ED9912 /* LoginViewController.h */,
-				2932D68A1D5827E000ED9912 /* LoginViewController.m */,
-				2932D68B1D5827E000ED9912 /* LoginViewController.xib */,
-				2932D68E1D58289700ED9912 /* RegisterViewController.h */,
-				2932D68F1D58289700ED9912 /* RegisterViewController.m */,
+				29AFC5B01EC1F2A30032D799 /* HomeViewController.h */,
+				29AFC5B11EC1F2A30032D799 /* HomeViewController.m */,
+				29AFC5B21EC1F2A30032D799 /* HomeViewController.xib */,
+				29AFC5B81EC1F3460032D799 /* UserCenterViewController.h */,
+				29AFC5B91EC1F3460032D799 /* UserCenterViewController.m */,
+				29AFC5BA1EC1F3460032D799 /* UserCenterViewController.xib */,
+				29AFC5D21EC1F9060032D799 /* LoginViewController.h */,
+				29AFC5D31EC1F9060032D799 /* LoginViewController.m */,
+				29AFC5D41EC1F9060032D799 /* LoginViewController.xib */,
+				29AFC5D71EC1FA6E0032D799 /* OtherViewController.h */,
+				29AFC5D81EC1FA6E0032D799 /* OtherViewController.m */,
+				29AFC5DA1EC1FC660032D799 /* WebViewController.h */,
+				29AFC5DB1EC1FC660032D799 /* WebViewController.m */,
+				29AFC5DC1EC1FC660032D799 /* WebViewController.xib */,
 				298461161D58301300B70488 /* XXRouter */,
 				291FA5891D5049AF00E54A12 /* Assets.xcassets */,
 				291FA58B1D5049AF00E54A12 /* LaunchScreen.storyboard */,
@@ -172,10 +188,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29AFC5D61EC1F9060032D799 /* LoginViewController.xib in Resources */,
+				29AFC5BC1EC1F3460032D799 /* UserCenterViewController.xib in Resources */,
 				291FA58D1D5049AF00E54A12 /* LaunchScreen.storyboard in Resources */,
+				29AFC5DE1EC1FC670032D799 /* WebViewController.xib in Resources */,
 				291FA58A1D5049AF00E54A12 /* Assets.xcassets in Resources */,
-				2932D6951D58294100ED9912 /* ViewController.xib in Resources */,
-				2932D68D1D5827E000ED9912 /* LoginViewController.xib in Resources */,
+				29AFC5B41EC1F2A30032D799 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,14 +204,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29AFC5D51EC1F9060032D799 /* LoginViewController.m in Sources */,
+				29AFC5DD1EC1FC670032D799 /* WebViewController.m in Sources */,
 				291FA5821D5049AF00E54A12 /* AppDelegate.m in Sources */,
 				2984611C1D58301300B70488 /* XXRouterItem.m in Sources */,
-				2932D6941D58294100ED9912 /* ViewController.m in Sources */,
-				2932D68C1D5827E000ED9912 /* LoginViewController.m in Sources */,
+				29AFC5D91EC1FA6E0032D799 /* OtherViewController.m in Sources */,
+				29AFC5BB1EC1F3460032D799 /* UserCenterViewController.m in Sources */,
 				2932D6881D58279400ED9912 /* TestRouter.m in Sources */,
-				2932D6901D58289700ED9912 /* RegisterViewController.m in Sources */,
 				2984611B1D58301300B70488 /* XXRouter.m in Sources */,
 				291FA57F1D5049AF00E54A12 /* main.m in Sources */,
+				29AFC5B31EC1F2A30032D799 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

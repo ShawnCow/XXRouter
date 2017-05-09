@@ -11,6 +11,8 @@
 
 extern NSString * XXRouterUrlKey;
 extern NSString * XXRouterFromUrlKey;
+extern NSString * XXRouterWebItemKey;       //  @"web"
+extern NSString * XXRouterLoginItemKey;     //  @"login"
 
 typedef id (^XXRouterCallbackCompletion)(NSDictionary * dic);
 
@@ -21,6 +23,8 @@ typedef id (^XXRouterCallbackCompletion)(NSDictionary * dic);
 @protocol XXRouterDelegate <NSObject>
 
 @optional
+
+- (NSURL *)router:(XXRouter *)router url:(NSURL *)url;
 
 - (BOOL)router:(XXRouter *)router shouldRouterItem:(XXRouterItem *)item;
 
@@ -39,6 +43,12 @@ typedef id (^XXRouterCallbackCompletion)(NSDictionary * dic);
 @property (nonatomic, weak) UIViewController * rootViewController;
 
 @property (nonatomic, weak) id <XXRouterDelegate>delegate;
+
+@property (nonatomic, readonly) XXRouterItem * loginItem;//key is "login"
+
+@property (nonatomic,getter=isLogin) BOOL login;//这个参数很不愿意添加在这里,不过将就一下 如果需要实现这个参数 请做好登录 注销的状态联动
+
+@property (nonatomic, readonly) XXRouterItem * webVcItem;//key is "web"
 
 - (XXRouterItem *)itemForKey:(NSString *)key;
 

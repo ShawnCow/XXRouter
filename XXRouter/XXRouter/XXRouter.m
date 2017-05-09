@@ -21,6 +21,8 @@
 
 NSString * XXRouterUrlKey = @"XXRouterUrlKey";
 NSString * XXRouterFromUrlKey = @"XXRouterFromUrlKey";
+NSString * XXRouterWebItemKey = @"web";
+NSString * XXRouterLoginItemKey = @"login";
 
 @interface XXRouter ()
 {
@@ -68,6 +70,12 @@ NSString * XXRouterFromUrlKey = @"XXRouterFromUrlKey";
 - (void)reigsterRouterItem:(XXRouterItem *)item
 {
     @synchronized (__mappingItems) {
+        if ([item.key isEqualToString:XXRouterLoginItemKey]) {
+            _loginItem = item;
+        }else if ([item.key isEqualToString:XXRouterWebItemKey])
+        {
+            _webVcItem = item;
+        }
         __mappingItems[item.key] = item;
     }
 }
@@ -80,6 +88,12 @@ NSString * XXRouterFromUrlKey = @"XXRouterFromUrlKey";
         item = __mappingItems[tempKey];
         if (item) {
             [__mappingItems removeObjectForKey:tempKey];
+        }
+        if (item == _webVcItem) {
+            _webVcItem = nil;
+        }else if (item == _loginItem)
+        {
+            _loginItem = nil;
         }
     }
     return item;
@@ -98,6 +112,9 @@ NSString * XXRouterFromUrlKey = @"XXRouterFromUrlKey";
         if (item) {
             return YES;
         }
+    }else if (([url.scheme isEqualToString:@"http"] || [url.scheme isEqualToString:@"https"]) && self.webVcItem)
+    {
+        return YES;
     }
     return NO;
 }
@@ -114,19 +131,39 @@ NSString * XXRouterFromUrlKey = @"XXRouterFromUrlKey";
 
 - (UIViewController *)routerWithUrl:(NSURL *)url completion:(XXRouterCallbackCompletion)completion error:(NSError *__autoreleasing *)error
 {
+    if (self.delegate && [self.delegate router:self url:url]) {
+        url = [self.delegate router:self url:url];
+    }
+    
+    XXRouterItem * item = nil;
+    
     if (!url) {
         [self __routerFailedWithUrl:url errorMsg:@"router url is null" errorCode:1 error:error];
         return nil;
     }
-    if ([url.scheme isEqualToString:self.scheme] == NO) {
+    if ([url.scheme isEqualToString:@"http"] || [url.scheme isEqualToString:@"https"]) {
+        if (self.webVcItem) {
+            item = self.webVcItem;
+            url = [self urlWithKey:self.webVcItem.key param:[NSDictionary dictionaryWithObject:url.absoluteString forKey:@"url"]];
+        }else
+        {
+            [self __routerFailedWithUrl:url errorMsg:@"need regist web item, key is web" errorCode:12 error:error];
+            return nil;
+        }
+    }else if ([url.scheme isEqualToString:self.scheme] == NO) {
         [self __routerFailedWithUrl:url errorMsg:@"router url scheme not support" errorCode:2 error:error];
         return nil;
     }
     NSString * key = url.host;
-    XXRouterItem * item = [self itemForKey:key];
+    
+     item = [self itemForKey:key];
     if (!item) {
         [self __routerFailedWithUrl:url errorMsg:@"key not contain router item" errorCode:3 error:error];
         return nil;
+    }
+    
+    if (item.needLogin && self.loginItem && self.isLogin == NO) {
+        return [self routerWithUrl:[self urlWithKey:XXRouterLoginItemKey]];
     }
     
     BOOL shouldRouterItem = YES;
@@ -137,14 +174,25 @@ NSString * XXRouterFromUrlKey = @"XXRouterFromUrlKey";
         return nil;
     }
     
+    if (item.customUICompletion) {
+        UIViewController * vc = nil;
+        item.customUICompletion(self, item);
+        if (vc) {            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(router:didRouterItem:viewController:)]) {
+                [self.delegate router:self didRouterItem:item viewController:vc];
+            }
+        }
+        return vc;
+    }
+    
     UIViewController * rootViewController = [self rootViewController];
-    if (!rootViewController) {
+    if (!rootViewController && item.customUICompletion == nil) {
         [self __routerFailedWithUrl:url errorMsg:@"root viewcontroller is null, can not router" errorCode:4 error:error];
         return nil;
     }
     
     UINavigationController * nai = [self __getNavigationControllerWithRootViewController:rootViewController];
-    if (nai == nil) {
+    if (nai == nil && item.customUICompletion == nil) {
         [self __routerFailedWithUrl:url errorMsg:@"not match navigation controller, can not push" errorCode:5 error:error];
         return nil;
     }

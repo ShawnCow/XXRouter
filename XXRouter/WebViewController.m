@@ -1,31 +1,32 @@
 //
-//  RegisterViewController.m
+//  WebViewController.m
 //  XXRouter
 //
-//  Created by Shawn on 16/8/8.
-//  Copyright © 2016年 Shawn. All rights reserved.
+//  Created by Shawn on 2017/5/9.
+//  Copyright © 2017年 Shawn. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "WebViewController.h"
 #import "TestRouter.h"
 
-@interface RegisterViewController ()
+@interface WebViewController ()
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
-@implementation RegisterViewController
+@implementation WebViewController
 
 + (void)load
 {
-    XXRouterItem * item = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) nibName:nil key:@"register"];
+    XXRouterItem * item = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) nibName:@"WebViewController" key:XXRouterWebItemKey];
     [[TestRouter shareRouter]reigsterRouterItem:item];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = [NSString stringWithFormat:@"%@ 要注册",[[self routerParamDic]objectForKey:@"name"]];
-    self.view.backgroundColor = [UIColor redColor];
-    // Do any additional setup after loading the view.
+    NSString * host = self.routerParamDic[@"url"];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:host]]];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

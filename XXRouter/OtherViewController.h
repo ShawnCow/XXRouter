@@ -1,5 +1,5 @@
 //
-//  LoginViewController.h
+//  OtherViewController.h
 //  XXRouter
 //
 //  Created by Shawn on 2017/5/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface OtherViewController : UIViewController
 
 @end

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserCenterViewController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,18 +19,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bq9-JY-Iir">
-                    <rect key="frame" x="8" y="8" width="31" height="30"/>
-                    <state key="normal" title="取消"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ert-6t-C0P">
+                    <rect key="frame" x="164.5" y="318.5" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="GPF-Wb-Cc4"/>
+                        <constraint firstAttribute="height" constant="30" id="IP0-hi-fIJ"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
                     <connections>
-                        <action selector="cancelBtnAction:" destination="-1" eventType="touchUpInside" id="rav-Jp-uph"/>
+                        <action selector="msgCenter:" destination="-1" eventType="touchUpInside" id="IpC-Yi-Vob"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bq9-JY-Iir" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="ia9-wT-pXS"/>
-                <constraint firstItem="bq9-JY-Iir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qiW-pZ-nF6"/>
+                <constraint firstItem="ert-6t-C0P" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0I5-Vd-u9t"/>
+                <constraint firstItem="ert-6t-C0P" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4bS-G9-lyt"/>
             </constraints>
         </view>
     </objects>
