@@ -8,7 +8,7 @@ s.summary      = '超级牛逼的路由管理  router'
 
 s.platform     =  :ios, '7.0'
 s.source       =  {:git => 'https://github.com/ShawnCow/XXRouter', :tag => s.version}
-s.source_files =  'XXRouter/XXRouter/*.{h,m}'
+s.source_files =  'XXRouter/*.{h,m}'
 s.frameworks   =  'Foundation','UIKit'
 
 s.requires_arc = true
