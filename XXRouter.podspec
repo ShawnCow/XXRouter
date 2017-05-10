@@ -4,7 +4,7 @@ s.version      = '0.0.1'
 s.license      = { :type => 'MIT', :file => 'LICENSE' }
 s.homepage     = 'https://github.com/ShawnCow/XXRouter'
 s.authors      = {'大黄' => 'rockhxy@gmail.com'}
-s.summary      = '超级牛逼的路由管理  router'
+s.summary      = '简单的路由管理  router'
 
 s.platform     =  :ios, '7.0'
 s.source       =  {:git => 'https://github.com/ShawnCow/XXRouter.git', :tag => s.version}
