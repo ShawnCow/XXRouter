@@ -62,30 +62,11 @@ typedef id (^XXRouterCallbackCompletion)(NSDictionary * dic);
 
 - (BOOL)canRouterUrl:(NSURL *)url;
 
-- (UIViewController *)routerWithKey:(NSString *)key;
-
-- (UIViewController *)routerWithKey:(NSString *)key param:(NSDictionary *)param;
-
 - (UIViewController *)routerWithUrl:(NSURL *)url;
-
-- (UIViewController *)routerWithUrl:(NSURL *)url removeVcsFromCurrentNaiStatck:(NSArray *)removeVcs;
 
 - (UIViewController *)routerWithUrl:(NSURL *)url completion:(XXRouterCallbackCompletion)completion;
 
-- (UIViewController *)routerWithUrl:(NSURL *)url removeVcsFromCurrentNaiStatck:(NSArray *)removeVcs completion:(XXRouterCallbackCompletion)completion;
-
 - (UIViewController *)routerWithUrl:(NSURL *)url completion:(XXRouterCallbackCompletion)completion error:(NSError **)error;
-
-/**
- 跳转
-
- @param url router url
- @param removeVcs 需要从 当前的 navigationController 的栈里面 剔除掉的 vc  NSArray<UIViewController *> *
- @param completion 回掉
- @param error 错误
- @return vc
- */
-- (UIViewController *)routerWithUrl:(NSURL *)url removeVcsFromCurrentNaiStatck:(NSArray *)removeVcs completion:(XXRouterCallbackCompletion)completion error:(NSError **)error;
 
 #pragma mark - url 
 
