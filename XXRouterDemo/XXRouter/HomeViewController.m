@@ -56,7 +56,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,6 +67,9 @@
     }else if (indexPath.row == 1)
     {
         cell.textLabel.text = @"other";
+    }else if (indexPath.row == 2)
+    {
+        cell.textLabel.text = @"test";
     }else
         cell.textLabel.text = @"https://www.baidu.com";
     return cell;

@@ -10,6 +10,7 @@
 #import "XXRouterItem.h"
 #import <objc/runtime.h>
 
+typedef void (^_XXRouterNavigationManagerCompletion)(UINavigationController * nai, UIViewController * showVc);
 
 @interface UIViewController (XXRouterPrivate)
 
@@ -44,6 +45,11 @@ NSString * XXRouterLoginItemKey = @"login";
         __mappingItems = [NSMutableDictionary dictionary];
     }
     return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithScheme:nil];
 }
 
 - (NSArray *)mappingItems
@@ -119,9 +125,24 @@ NSString * XXRouterLoginItemKey = @"login";
     return NO;
 }
 
+- (UIViewController *)routerWithKey:(NSString *)key
+{
+    return [self routerWithKey:key param:nil];
+}
+
+- (UIViewController *)routerWithKey:(NSString *)key param:(NSDictionary *)param
+{
+    return [self routerWithUrl:[self urlWithKey:key param:param]];
+}
+
 - (UIViewController *)routerWithUrl:(NSURL *)url
 {
     return [self routerWithUrl:url completion:nil];
+}
+
+- (UIViewController *)routerWithUrl:(NSURL *)url removeVcsFromCurrentNaiStatck:(NSArray *)removeVcs
+{
+    return [self routerWithUrl:url removeVcsFromCurrentNaiStatck:removeVcs completion:nil];
 }
 
 - (UIViewController *)routerWithUrl:(NSURL *)url completion:(XXRouterCallbackCompletion)completion
@@ -129,7 +150,27 @@ NSString * XXRouterLoginItemKey = @"login";
     return [self routerWithUrl:url completion:completion error:nil];
 }
 
+- (UIViewController *)routerWithUrl:(NSURL *)url removeVcsFromCurrentNaiStatck:(NSArray *)removeVcs completion:(XXRouterCallbackCompletion)completion
+{
+    return [self routerWithUrl:url removeVcsFromCurrentNaiStatck:removeVcs completion:completion error:nil];
+}
+
 - (UIViewController *)routerWithUrl:(NSURL *)url completion:(XXRouterCallbackCompletion)completion error:(NSError *__autoreleasing *)error
+{
+    return [self routerWithUrl:url completion:completion navigationManagerCompletion:nil error:error];
+}
+
+- (UIViewController *)routerWithUrl:(NSURL *)url removeVcsFromCurrentNaiStatck:(NSArray *)removeVcs completion:(XXRouterCallbackCompletion)completion error:(NSError **)error
+{
+    return [self routerWithUrl:url completion:completion navigationManagerCompletion:^(UINavigationController *nai, UIViewController * showVc) {
+        NSMutableArray * tempArray = [nai.viewControllers mutableCopy];
+        [tempArray removeObjectsInArray:removeVcs];
+        [tempArray addObject:showVc];
+        [nai setViewControllers:tempArray animated:YES];
+    } error:error];
+}
+
+- (UIViewController *)routerWithUrl:(NSURL *)url completion:(XXRouterCallbackCompletion)completion navigationManagerCompletion:(_XXRouterNavigationManagerCompletion)naiComplaetion error:(NSError *__autoreleasing *)error
 {
     if (self.delegate && [self.delegate router:self url:url]) {
         url = [self.delegate router:self url:url];
@@ -212,7 +253,10 @@ NSString * XXRouterLoginItemKey = @"login";
     [viewController setRouterParamDic:tempDic];
     [viewController setRouterCallbackCompletion:completion];
     
-    [nai pushViewController:viewController animated:YES];
+    if (naiComplaetion) {
+        naiComplaetion(nai,viewController);
+    }else
+        [nai pushViewController:viewController animated:YES];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(router:didRouterItem:viewController:)]) {
         [self.delegate router:self didRouterItem:item viewController:viewController];
