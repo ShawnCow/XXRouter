@@ -12,6 +12,8 @@
 		291FA58A1D5049AF00E54A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 291FA5891D5049AF00E54A12 /* Assets.xcassets */; };
 		291FA58D1D5049AF00E54A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 291FA58B1D5049AF00E54A12 /* LaunchScreen.storyboard */; };
 		2932D6881D58279400ED9912 /* TestRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2932D6871D58279400ED9912 /* TestRouter.m */; };
+		29763B301EC5592C001DF74A /* TestTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29763B2E1EC5592C001DF74A /* TestTwoViewController.m */; };
+		29763B311EC5592C001DF74A /* TestTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29763B2F1EC5592C001DF74A /* TestTwoViewController.xib */; };
 		2984611B1D58301300B70488 /* XXRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 298461181D58301300B70488 /* XXRouter.m */; };
 		2984611C1D58301300B70488 /* XXRouterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2984611A1D58301300B70488 /* XXRouterItem.m */; };
 		29AFC5B31EC1F2A30032D799 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AFC5B11EC1F2A30032D799 /* HomeViewController.m */; };
@@ -35,6 +37,9 @@
 		291FA58E1D5049AF00E54A12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2932D6861D58279400ED9912 /* TestRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRouter.h; sourceTree = "<group>"; };
 		2932D6871D58279400ED9912 /* TestRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRouter.m; sourceTree = "<group>"; };
+		29763B2D1EC5592C001DF74A /* TestTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTwoViewController.h; sourceTree = "<group>"; };
+		29763B2E1EC5592C001DF74A /* TestTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTwoViewController.m; sourceTree = "<group>"; };
+		29763B2F1EC5592C001DF74A /* TestTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTwoViewController.xib; sourceTree = "<group>"; };
 		298461171D58301300B70488 /* XXRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRouter.h; sourceTree = "<group>"; };
 		298461181D58301300B70488 /* XXRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXRouter.m; sourceTree = "<group>"; };
 		298461191D58301300B70488 /* XXRouterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXRouterItem.h; sourceTree = "<group>"; };
@@ -92,6 +97,9 @@
 				29AFC5B01EC1F2A30032D799 /* HomeViewController.h */,
 				29AFC5B11EC1F2A30032D799 /* HomeViewController.m */,
 				29AFC5B21EC1F2A30032D799 /* HomeViewController.xib */,
+				29763B2D1EC5592C001DF74A /* TestTwoViewController.h */,
+				29763B2E1EC5592C001DF74A /* TestTwoViewController.m */,
+				29763B2F1EC5592C001DF74A /* TestTwoViewController.xib */,
 				29AFC5B81EC1F3460032D799 /* UserCenterViewController.h */,
 				29AFC5B91EC1F3460032D799 /* UserCenterViewController.m */,
 				29AFC5BA1EC1F3460032D799 /* UserCenterViewController.xib */,
@@ -190,6 +198,7 @@
 			files = (
 				29AFC5D61EC1F9060032D799 /* LoginViewController.xib in Resources */,
 				29AFC5BC1EC1F3460032D799 /* UserCenterViewController.xib in Resources */,
+				29763B311EC5592C001DF74A /* TestTwoViewController.xib in Resources */,
 				291FA58D1D5049AF00E54A12 /* LaunchScreen.storyboard in Resources */,
 				29AFC5DE1EC1FC670032D799 /* WebViewController.xib in Resources */,
 				291FA58A1D5049AF00E54A12 /* Assets.xcassets in Resources */,
@@ -212,6 +221,7 @@
 				29AFC5BB1EC1F3460032D799 /* UserCenterViewController.m in Sources */,
 				2932D6881D58279400ED9912 /* TestRouter.m in Sources */,
 				2984611B1D58301300B70488 /* XXRouter.m in Sources */,
+				29763B301EC5592C001DF74A /* TestTwoViewController.m in Sources */,
 				291FA57F1D5049AF00E54A12 /* main.m in Sources */,
 				29AFC5B31EC1F2A30032D799 /* HomeViewController.m in Sources */,
 			);
