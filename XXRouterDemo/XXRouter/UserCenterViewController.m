@@ -18,7 +18,7 @@
 + (void)load
 {
     XXRouterItem * homeItem = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) nibName:@"UserCenterViewController" key:@"my"];
-    homeItem.customUICompletion = ^(XXRouter *router,XXRouterItem *param) {
+    homeItem.customHandleCompletion = ^(XXRouter *router,XXRouterItem *item, NSDictionary *param) {
         
         UITabBarController * tbc = (UITabBarController *)[[[[UIApplication sharedApplication]windows]firstObject]rootViewController];
         NSArray * vcs = tbc.viewControllers;
@@ -37,6 +37,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)msgCenter:(id)sender {
+    [[TestRouter shareRouter] routerWithKey:@"home" param:@{@"user":@"value"}];
 }
 
 - (void)didReceiveMemoryWarning {

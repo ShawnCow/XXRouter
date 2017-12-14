@@ -11,6 +11,36 @@
 
 @implementation XXRouterItem
 
++ (instancetype)itemWithClass:(Class)vcClass key:(NSString *)key
+{
+    XXRouterItem *item = [[self alloc]initWithClassName:NSStringFromClass(vcClass) key:key];
+    return item;
+}
+
++ (instancetype)itemWithClass:(Class)vcClass nibName:(NSString *)nibName key:(NSString *)key
+{
+    XXRouterItem *item = [[self alloc]initWithClassName:NSStringFromClass(vcClass) nibName:nibName key:key];
+    return item;
+}
+
++ (instancetype)itemWithClass:(Class)vcClass nibName:(NSString *)nibName bundle:(NSBundle *)bundle key:(NSString *)key
+{
+    XXRouterItem *item = [[self alloc]initWithClassName:NSStringFromClass(vcClass) nibName:nibName bundle:bundle key:key];
+    return item;
+}
+
++ (instancetype)itemWithStoryboardName:(NSString *)storyboardName storyboardId:(NSString *)storyboardId key:(NSString *)key
+{
+    XXRouterItem *item = [[self alloc] initWithStoryboardName:storyboardName storyboardId:storyboardId key:key];
+    return item;
+}
+
++ (instancetype)itemWithStoryboardName:(NSString *)storyboardName storyboardId:(NSString *)storyboardId bundle:(NSBundle *)bundle key:(NSString *)key
+{
+    XXRouterItem *item = [[self alloc] initWithStoryboardName:storyboardName storyboardId:storyboardId bundle:bundle key:key];
+    return item;
+}
+
 - (instancetype)initWithClassName:(NSString *)className nibName:(NSString *)nibName bundle:(NSBundle *)bundle key:(NSString *)key
 {
     Class class = NSClassFromString(className);

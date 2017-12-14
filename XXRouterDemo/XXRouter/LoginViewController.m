@@ -18,7 +18,7 @@
 + (void)load
 {
     XXRouterItem * loginItem = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) nibName:@"LoginViewController" key:XXRouterLoginItemKey];
-    loginItem.customUICompletion = ^(XXRouter *router,XXRouterItem *item) {
+    loginItem.customHandleCompletion = ^(XXRouter *router,XXRouterItem *item, NSDictionary *param) {
         
         UIViewController * vc = [router.loginItem createViewController];
         UINavigationController * nai = [[UINavigationController alloc]initWithRootViewController:vc];

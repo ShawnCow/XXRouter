@@ -18,9 +18,10 @@
 
 + (void)load
 {
-    XXRouterItem * homeItem = [[XXRouterItem alloc]initWithClassName:NSStringFromClass(self) nibName:@"HomeViewController" key:@"home"];
-    homeItem.customUICompletion = ^(XXRouter *router,XXRouterItem *param) {
+    XXRouterItem * homeItem = [XXRouterItem itemWithClass:self nibName:@"HomeViewController" bundle:nil key:@"home"];// [XXRouterItem WithClassName:NSStringFromClass(self) nibName:@"HomeViewController" key:@"home"];
+    homeItem.customHandleCompletion = ^(XXRouter *router,XXRouterItem *item, NSDictionary *param) {
         
+        NSLog(@"para %@",param);
         UITabBarController * tbc = (UITabBarController *)[[[[UIApplication sharedApplication]windows]firstObject]rootViewController];
         NSArray * vcs = tbc.viewControllers;
         UINavigationController * nai = [vcs firstObject];

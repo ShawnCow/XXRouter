@@ -215,10 +215,25 @@ NSString * XXRouterLoginItemKey = @"login";
         return nil;
     }
     
-    if (item.customUICompletion) {
+    NSDictionary * param = [self paramFromUrl:url];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    
+    if (item.customHandleCompletion) {
+        UIViewController * vc = nil;
+        item.customHandleCompletion(self, item, param);
+        if (vc) {            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(router:didRouterItem:viewController:)]) {
+                [self.delegate router:self didRouterItem:item viewController:vc];
+            }
+        }
+        return vc;
+    }else if (item.customUICompletion)
+    {
         UIViewController * vc = nil;
         item.customUICompletion(self, item);
-        if (vc) {            
+        if (vc) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(router:didRouterItem:viewController:)]) {
                 [self.delegate router:self didRouterItem:item viewController:vc];
             }
@@ -227,18 +242,17 @@ NSString * XXRouterLoginItemKey = @"login";
     }
     
     UIViewController * rootViewController = [self rootViewController];
-    if (!rootViewController && item.customUICompletion == nil) {
+    if (!rootViewController && item.customUICompletion == nil && item.customHandleCompletion == nil) {
         [self __routerFailedWithUrl:url errorMsg:@"root viewcontroller is null, can not router" errorCode:4 error:error];
         return nil;
     }
     
     UINavigationController * nai = [self __getNavigationControllerWithRootViewController:rootViewController];
-    if (nai == nil && item.customUICompletion == nil) {
+    if (nai == nil && item.customUICompletion == nil && item.customHandleCompletion == nil) {
         [self __routerFailedWithUrl:url errorMsg:@"not match navigation controller, can not push" errorCode:5 error:error];
         return nil;
     }
-    
-    NSDictionary * param = [self paramFromUrl:url];
+#pragma clang diagnostic pop
     
     UIViewController * currentViewController = [self __getNavigationControllerWithRootViewController:rootViewController];
     

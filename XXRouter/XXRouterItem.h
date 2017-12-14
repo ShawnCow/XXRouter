@@ -25,7 +25,9 @@ typedef NS_ENUM(NSUInteger, XXRouterCreateType)
 @class XXRouter;
 @class XXRouterItem;
 
-typedef id (^XXRouterCustomUICompletion)(XXRouter * router, XXRouterItem * item);
+typedef id (^XXRouterCustomUICompletion)(XXRouter * router, XXRouterItem * item);//废弃掉 XXRouterCustomHandleCompletion替换
+
+typedef id (^XXRouterCustomHandleCompletion)(XXRouter * router, XXRouterItem * item, NSDictionary *param);
 
 @class UIViewController;
 
@@ -45,27 +47,38 @@ typedef id (^XXRouterCustomUICompletion)(XXRouter * router, XXRouterItem * item)
 
 @property (nonatomic, readonly, copy) NSString * storyboardId;
 
-@property (nonatomic, copy) XXRouterCustomUICompletion customUICompletion;
+@property (nonatomic, copy) XXRouterCustomHandleCompletion customHandleCompletion;//自定义处理事件,如果实现这个就不会对 UI 进行跳转 需要自己处理跳转的 UI
 
 @property (nonatomic) BOOL needLogin;
 
 #pragma mark - 通过class创建对象
 
++ (instancetype)itemWithClass:(Class)vcClass key:(NSString *)key;
+
 - (instancetype)initWithClassName:(NSString *)className key:(NSString *)key;
 
 #pragma mark -  通过 xib创建对象
 
++ (instancetype)itemWithClass:(Class)vcClass nibName:(NSString *)nibName key:(NSString *)key;
+
 - (instancetype)initWithClassName:(NSString *)className nibName:(NSString *)nibName key:(NSString *)key;
+
++ (instancetype)itemWithClass:(Class)vcClass nibName:(NSString *)nibName bundle:(NSBundle *)bundle key:(NSString *)key;
 
 - (instancetype)initWithClassName:(NSString *)className nibName:(NSString *)nibName bundle:(NSBundle *)bundle key:(NSString *)key;
 
 #pragma mark - 通过 storyboard创建对象
 
++ (instancetype)itemWithStoryboardName:(NSString *)storyboardName storyboardId:(NSString *)storyboardId key:(NSString *)key;
+
 - (instancetype)initWithStoryboardName:(NSString *)storyboardName storyboardId:(NSString *)storyboardId key:(NSString *)key;
+
++ (instancetype)itemWithStoryboardName:(NSString *)storyboardName storyboardId:(NSString *)storyboardId bundle:(NSBundle *)bundle key:(NSString *)key;
 
 - (instancetype)initWithStoryboardName:(NSString *)storyboardName storyboardId:(NSString *)storyboardId bundle:(NSBundle *)bundle key:(NSString *)key;
 
-
 - (UIViewController *)createViewController;
+
+@property (nonatomic, copy) XXRouterCustomUICompletion customUICompletion __attribute__((deprecated("已过期, 用customHandleCompletion替换")));
 
 @end
