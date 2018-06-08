@@ -221,8 +221,7 @@ NSString * XXRouterLoginItemKey = @"login";
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     
     if (item.customHandleCompletion) {
-        UIViewController * vc = nil;
-        item.customHandleCompletion(self, item, param);
+        UIViewController * vc = item.customHandleCompletion(self, item, param);
         if (vc) {            
             if (self.delegate && [self.delegate respondsToSelector:@selector(router:didRouterItem:viewController:)]) {
                 [self.delegate router:self didRouterItem:item viewController:vc];
@@ -231,8 +230,7 @@ NSString * XXRouterLoginItemKey = @"login";
         return vc;
     }else if (item.customUICompletion)
     {
-        UIViewController * vc = nil;
-        item.customUICompletion(self, item);
+        UIViewController * vc = item.customUICompletion(self, item);
         if (vc) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(router:didRouterItem:viewController:)]) {
                 [self.delegate router:self didRouterItem:item viewController:vc];
