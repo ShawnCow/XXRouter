@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'XXRouter'
-s.version      = '0.0.2'
+s.version      = '0.0.4'
 s.license      = { :type => 'MIT', :file => 'LICENSE' }
 s.homepage     = 'https://github.com/ShawnCow/XXRouter'
 s.authors      = {'大黄' => 'rockhxy@gmail.com'}
